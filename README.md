@@ -11,10 +11,10 @@ NTU-ML-Foundations-BY-Hsuan-Tien-Lin(Homework1)
   * 算法实现<br>
     由于该算法是实现线型分类功能的算法，所以该算法要求数据集为线型可分的数据集，算法返回的结果也是由一组权重表示的直线、平面或者超平面，该算法实现的伪代码如下：<br>
     for t = 0,1,2...<br>
-      1、遍历数据点，计算每个数据点xn(t)在第t轮迭代中的权重Wt下的计算结果Wt/*xn(t)，并与该点对应的标签值yn进行比较，进行判断计算：<br>
-      sign(Wt/*xn(t))==yn<br>
+      1、遍历数据点，计算每个数据点xn(t)在第t轮迭代中的权重Wt下的计算结果Wt * xn(t)，并与该点对应的标签值yn进行比较，进行判断计算：<br>
+      sign(Wt * xn(t)) == yn<br>
       2、如果1中的判断结果为false，这对权重进行修正，修正公式为：<br>
-      Wt+1 = Wt + yn/*xn(t)<br>
+      Wt+1 = Wt + yn * xn(t)<br>
       3、继续进行t轮迭代，直到没有错误分类点<br>
     return Wpla<br>
  ## pocket算法<br>
@@ -22,7 +22,7 @@ NTU-ML-Foundations-BY-Hsuan-Tien-Lin(Homework1)
   * 算法实现<br>
     for t = 0,1,2...N<br>
       1、遍历数据点，并随机找到一组在Wt的权重下分类错误的点xn(t)<br>
-      2、更新权值：Wt+1 = Wt + yn/*xn(t)<br>
+      2、更新权值：Wt+1 = Wt + yn * xn(t)<br>
       3、比较Wt+1和Wt的性能，如果Wt+1下的分类错误点的个数比Wt下的分类错误点的个数少的话，则保留当前权值Wt+1，否则不更新。<br>
       4、继续迭代，直到达到设定迭代次数<br>
     return Wpla<br>
